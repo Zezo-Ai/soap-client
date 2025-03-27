@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace Phpro\SoapClient\Soap;
 
-use Soap\CachedEngine\CachedEngine;
+use Psr\Cache\CacheItemPoolInterface;
+use Soap\CachedEngine\CachedDriver;
 use Soap\Encoding\Driver;
 use Soap\Engine\Engine;
 use Soap\Engine\LazyEngine;
@@ -15,32 +16,37 @@ final class DefaultEngineFactory
     public static function create(
         EngineOptions $options
     ): Engine {
-
-        $cache = $options->getCache();
-        $factory = static fn(): Engine => self::configureEngine($options);
-
-        return match (true) {
-            $cache->isSome() => new CachedEngine($cache->unwrap(), $options->getCacheConfig(), $factory),
-            default => new LazyEngine($factory),
-        };
+        return new LazyEngine(static fn (): Engine => self::configureEngine($options));
     }
 
     private static function configureEngine(EngineOptions $options): Engine
+    {
+        $driver = $options->getCache()->mapOrElse(
+            static fn (CacheItemPoolInterface $cache) => new CachedDriver(
+                $cache,
+                $options->getCacheConfig(),
+                static fn () => self::configureDriver($options),
+            ),
+            static fn () => self::configureDriver($options)
+        )->unwrap();
+
+        return new SimpleEngine(
+            $driver,
+            $options->getTransport()
+        );
+    }
+
+    private static function configureDriver(EngineOptions $options): Driver
     {
         $wsdl = (new Wsdl1Reader($options->getWsdlLoader()))(
             $options->getWsdl(),
             $options->getWsdlParserContext()
         );
 
-        $driver = Driver::createFromWsdl1(
+        return Driver::createFromWsdl1(
             $wsdl,
             $options->getWsdlServiceSelectionCriteria(),
             $options->getEncoderRegistry()
-        );
-
-        return new SimpleEngine(
-            $driver,
-            $options->getTransport()
         );
     }
 }
