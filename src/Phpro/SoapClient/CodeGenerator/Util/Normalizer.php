@@ -161,7 +161,7 @@ class Normalizer
      */
     private static function camelCase(string $word, string $regexp):string
     {
-        $parts = array_filter(preg_split($regexp, $word));
+        $parts = array_filter(preg_split($regexp, $word), static fn ($part) => $part !== '');
         $keepUnchanged = array_shift($parts);
         $parts = array_map('ucfirst', $parts);
         array_unshift($parts, $keepUnchanged);
@@ -228,7 +228,7 @@ class Normalizer
         }
 
         if (is_numeric($value)) {
-            return $conflictPrefix . str_replace('-', $minusPrefix, $value);
+            return self::normalizeProperty($conflictPrefix . str_replace('-', $minusPrefix, $value));
         }
 
         $normalized = self::normalizeProperty($value);
