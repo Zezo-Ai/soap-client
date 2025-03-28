@@ -68,6 +68,7 @@ class NormalizerSpec extends ObjectBehavior
         $this->normalizeEnumCaseName('0')->shouldReturn('Value_0');
         $this->normalizeEnumCaseName('1')->shouldReturn('Value_1');
         $this->normalizeEnumCaseName('10000')->shouldReturn('Value_10000');
+        $this->normalizeEnumCaseName('1.0')->shouldReturn('Value_10');
 
         $this->normalizeEnumCaseName('final')->shouldReturn('final');
         $this->normalizeEnumCaseName('Final')->shouldReturn('Final');
