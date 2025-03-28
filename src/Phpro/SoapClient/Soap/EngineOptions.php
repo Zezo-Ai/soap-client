@@ -130,7 +130,7 @@ final class EngineOptions
 
     public function getCacheConfig(): CacheConfig
     {
-        return $this->cacheConfig ?? new CacheConfig('soap-engine-'.md5($this->wsdl));
+        return $this->cacheConfig ?? new CacheConfig('soap-driver-'.md5($this->wsdl));
     }
 
     public function getWsdlServiceSelectionCriteria(): ServiceSelectionCriteria
