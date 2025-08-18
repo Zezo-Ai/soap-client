@@ -42,7 +42,7 @@ use Phpro\SoapClient\Soap\Metadata\MetadataOptions;
 return Config::create()
     //...
     ->setDuplicateTypeIntersectStrategy(
-        new IntersectDuplicateTypesStrategy()
+        new RemoveDuplicateTypesStrategy()
     )
     // ...
 ```
