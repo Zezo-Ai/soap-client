@@ -162,7 +162,7 @@ Config::create()
     ->setRuleSet(
         new Rules\RuleSet(
             [
-                new Rules\AssembleRule(new Assembler\PropertyAssembler(PropertyGenerator::VISIBILITY_PROTECTED)),
+                new Rules\AssembleRule(new Assembler\PropertyAssembler(Assembler\PropertyAssemblerOptions::create()->withVisibility(PropertyGenerator::VISIBILITY_PROTECTED))),
                 new Rules\AssembleRule(new Assembler\ClassMapAssembler()),
             ]
         )
