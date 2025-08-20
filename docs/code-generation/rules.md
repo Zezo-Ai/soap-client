@@ -52,7 +52,7 @@ The subRule is mostly a regular AssembleRule, but can be any class that implemen
 The regular expression will be matched against the method name added to the generated Client. 
 If the regular expression matches and the subRule is accepted, the defined assembler will run.
  
-In the example above, a custom `RemoveClientMethodAssembler` is is used to remove the `demoSetup` method from the Client completely.
+In the example above, a custom `RemoveClientMethodAssembler` is used to remove the `demoSetup` method from the Client completely.
 
 ## IsAbstractTypeRule
 
