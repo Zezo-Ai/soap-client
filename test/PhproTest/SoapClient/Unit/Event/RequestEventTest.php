@@ -7,6 +7,7 @@ namespace PhproTest\SoapClient\Unit;
 use Phpro\SoapClient\Event\RequestEvent;
 use Phpro\SoapClient\Type\RequestInterface;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 
@@ -27,19 +28,19 @@ class RequestEventTest extends TestCase
         $this->event = new RequestEvent('method', $this->request);
     }
 
-    /** @test */
+    #[Test]
     public function it_contains_a_request(): void
     {
         self::assertSame($this->request, $this->event->getRequest());
     }
 
-    /** @test */
+    #[Test]
     public function it_contains_a_method(): void
     {
         self::assertSame('method', $this->event->getMethod());
     }
 
-    /** @test */
+    #[Test]
     public function it_can_overwrite_request(): void
     {
         $new = $this->prophesize(RequestInterface::class)->reveal();

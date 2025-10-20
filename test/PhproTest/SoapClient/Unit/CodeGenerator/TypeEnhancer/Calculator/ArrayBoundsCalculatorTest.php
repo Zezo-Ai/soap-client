@@ -6,14 +6,14 @@ namespace PhproTest\SoapClient\Unit\CodeGenerator\TypeEnhancer\Calculator;
 use Phpro\SoapClient\CodeGenerator\TypeEnhancer\Calculator\ArrayBoundsCalculator;
 use Phpro\SoapClient\CodeGenerator\TypeEnhancer\MetaTypeEnhancer;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Soap\Engine\Metadata\Model\TypeMeta;
 
 class ArrayBoundsCalculatorTest extends TestCase
 {
-    /**
-     * @test
-     * @dataProvider provideExpectations
-     */
+    #[DataProvider('provideExpectations')]
+    #[Test]
     public function it_can_enhance_types(
         TypeMeta $meta,
         string $expected,

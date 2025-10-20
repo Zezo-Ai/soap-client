@@ -12,6 +12,7 @@ use Phpro\SoapClient\Exception\SoapException;
 use Phpro\SoapClient\Type\RequestInterface;
 use Phpro\SoapClient\Type\ResultInterface;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Prophecy\Argument;
 use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
@@ -32,7 +33,7 @@ class EventDispatchingCallerTest extends TestCase
     }
 
 
-    /** @test */
+    #[Test]
     public function it_triggers_events_for_successfull_requests(): void
     {
         $request = $this->prophesize(RequestInterface::class)->reveal();
@@ -53,7 +54,7 @@ class EventDispatchingCallerTest extends TestCase
         self::assertSame($result, $actual);
     }
 
-    /** @test */
+    #[Test]
     public function it_triggers_events_for_failing_requests(): void
     {
         $request = $this->prophesize(RequestInterface::class)->reveal();

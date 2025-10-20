@@ -6,6 +6,7 @@ namespace PhproTest\SoapClient\Unit\Soap\Metadata\Manipulators\TypeReplacer;
 use Phpro\SoapClient\Soap\Metadata\Manipulators\TypeReplacer\ReplaceMethodTypesManipulator;
 use Phpro\SoapClient\Soap\Metadata\Manipulators\TypeReplacer\TypeReplacer;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Soap\Engine\Metadata\Collection\MethodCollection;
 use Soap\Engine\Metadata\Collection\ParameterCollection;
 use Soap\Engine\Metadata\Model\Method;
@@ -15,9 +16,7 @@ use Soap\Engine\Metadata\Model\XsdType;
 class ReplaceMethodTypesManipulatorTest extends TestCase
 {
 
-    /**
-     * @test
-     */
+    #[Test]
     public function test_it_can_replace_methods(): void
     {
         $object = XsdType::create('object');

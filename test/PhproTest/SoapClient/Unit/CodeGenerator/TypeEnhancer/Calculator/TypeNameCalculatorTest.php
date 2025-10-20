@@ -5,15 +5,15 @@ namespace PhproTest\SoapClient\Unit\CodeGenerator\TypeEnhancer\Calculator;
 
 use Phpro\SoapClient\CodeGenerator\TypeEnhancer\Calculator\TypeNameCalculator;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Soap\Engine\Metadata\Model\TypeMeta;
 use Soap\Engine\Metadata\Model\XsdType;
 
 class TypeNameCalculatorTest extends TestCase
 {
-    /**
-     * @test
-     * @dataProvider provideTypeNameCalculations
-     */
+    #[DataProvider('provideTypeNameCalculations')]
+    #[Test]
     public function it_can_calculate_type_name(XsdType $xsdType, string $expected): void
     {
         $calculate = new TypeNameCalculator();

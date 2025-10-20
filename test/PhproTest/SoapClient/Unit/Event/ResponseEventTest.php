@@ -9,6 +9,7 @@ use Phpro\SoapClient\Event\ResponseEvent;
 use Phpro\SoapClient\Type\RequestInterface;
 use Phpro\SoapClient\Type\ResultInterface;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 
@@ -38,19 +39,19 @@ class ResponseEventTest extends TestCase
         $this->event = new ResponseEvent($this->requestEvent, $this->response);
     }
 
-    /** @test */
+    #[Test]
     public function it_contains_a_request_event(): void
     {
         self::assertSame($this->requestEvent, $this->event->getRequestEvent());
     }
 
-    /** @test */
+    #[Test]
     public function it_contains_a_response(): void
     {
         self::assertSame($this->response, $this->event->getResponse());
     }
 
-    /** @test */
+    #[Test]
     public function it_can_overwrite_response(): void
     {
         $new = $this->prophesize(ResultInterface::class)->reveal();

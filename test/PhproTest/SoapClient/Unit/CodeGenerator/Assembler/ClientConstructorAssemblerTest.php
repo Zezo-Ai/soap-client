@@ -8,21 +8,18 @@ use Phpro\SoapClient\CodeGenerator\Context\ClientContext;
 use Phpro\SoapClient\CodeGenerator\Context\ContextInterface;
 use Phpro\SoapClient\Exception\AssemblerException;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ClientConstructorAssemblerTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     function it_is_an_assembler()
     {
         $assembler = new ClientConstructorAssembler();
         $this->assertInstanceOf(ClientConstructorAssembler::class, $assembler);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_can_assemble_client_method_context()
     {
         $assembler = new ClientConstructorAssembler();
@@ -43,9 +40,7 @@ class ClientConstructorAssemblerTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_client_constructor()
     {
         $assembler = new ClientConstructorAssembler();
@@ -76,9 +71,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_throws_an_exception_when_wrong_context_is_passed() {
         $clientMethodAssembler = new ClientConstructorAssembler();
         $context = $this->createMock(ContextInterface::class);

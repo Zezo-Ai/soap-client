@@ -9,6 +9,7 @@ use Phpro\SoapClient\CodeGenerator\Context\TypeContext;
 use Phpro\SoapClient\CodeGenerator\Model\Property;
 use Phpro\SoapClient\CodeGenerator\Model\Type;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Laminas\Code\Generator\ClassGenerator;
 use Soap\Engine\Metadata\Model\Property as MetaProperty;
 use Soap\Engine\Metadata\Model\TypeMeta;
@@ -22,18 +23,14 @@ use Soap\Engine\Metadata\Model\XsdType;
 class UseAssemblerTest extends TestCase
 {
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_is_an_assembler()
     {
         $assembler = new UseAssembler('MyUsedClass');
         $this->assertInstanceOf(AssemblerInterface::class, $assembler);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_can_assemble_type_context()
     {
         $assembler = new UseAssembler('MyUsedClass');
@@ -41,9 +38,7 @@ class UseAssemblerTest extends TestCase
         $this->assertTrue($assembler->canAssemble($context));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_can_assemble_property_context()
     {
         $assembler = new UseAssembler('MyUsedClass');
@@ -54,9 +49,7 @@ class UseAssemblerTest extends TestCase
         $this->assertTrue($assembler->canAssemble($context));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_type()
     {
         $assembler = new UseAssembler('MyUsedClass');
@@ -78,9 +71,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_type_with_alias()
     {
         $assembler = new UseAssembler('MyUsedClass', 'Alias');
@@ -102,9 +93,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_an_existing_use_with_alias()
     {
         $assembler = new UseAssembler('MyUsedClass', 'Alias');
@@ -127,9 +116,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_does_not_assemble_use_for_the_same_namespace()
     {
         $assembler = new UseAssembler('MyNamespace');
@@ -149,9 +136,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_does_not_assemble_use_for_the_same_namespace_but_different_class()
     {
         $assembler = new UseAssembler('MyNamespace\\SomeOtherClass');
@@ -171,9 +156,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_does_not_assemble_use_for_the_global_namespace()
     {
         $assembler = new UseAssembler('SomeOtherClass');
@@ -195,9 +178,7 @@ CODE;
     }
 
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_use_for_the_different_namespace()
     {
         $assembler = new UseAssembler('DifferentNamespace\\SomeOtherClass');

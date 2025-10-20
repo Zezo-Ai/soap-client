@@ -9,6 +9,7 @@ use Phpro\SoapClient\CodeGenerator\Context\PropertyContext;
 use Phpro\SoapClient\CodeGenerator\Model\Property;
 use Phpro\SoapClient\CodeGenerator\Model\Type;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Laminas\Code\Generator\ClassGenerator;
 use Soap\Engine\Metadata\Model\Property as MetaProperty;
 use Soap\Engine\Metadata\Model\TypeMeta;
@@ -22,18 +23,14 @@ use Soap\Engine\Metadata\Model\XsdType;
 class ImmutableSetterAssemblerTest extends TestCase
 {
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_is_an_assembler()
     {
         $assembler = new ImmutableSetterAssembler();
         $this->assertInstanceOf(AssemblerInterface::class, $assembler);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_can_assemble_property_context()
     {
         $assembler = new ImmutableSetterAssembler();
@@ -41,9 +38,7 @@ class ImmutableSetterAssemblerTest extends TestCase
         $this->assertTrue($assembler->canAssemble($context));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_property()
     {
         $assembler = new ImmutableSetterAssembler();
@@ -74,9 +69,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_doc_block_that_does_not_wrap()
     {
         $assembler = new ImmutableSetterAssembler();
@@ -107,9 +100,7 @@ CODE;
         $this->assertEquals($expected, $generated);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_with_no_doc_blocks()
     {
         $assembler = new ImmutableSetterAssembler((new ImmutableSetterAssemblerOptions())->withDocBlocks(false));
@@ -136,9 +127,7 @@ CODE;
         $this->assertEquals($expected, $generated);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_with_no_type_hints()
     {
         $assembler = new ImmutableSetterAssembler((new ImmutableSetterAssemblerOptions())->withTypeHints(false));
@@ -169,9 +158,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_assembles_with_no_return_type(): void
     {
         $assembler = new ImmutableSetterAssembler(
@@ -205,9 +192,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_assembles_with_no_type_information(): void
     {
         $assembler = new ImmutableSetterAssembler(
@@ -239,9 +224,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_fluent_setter_with_advanced_types()
     {
         $assembler = new ImmutableSetterAssembler();

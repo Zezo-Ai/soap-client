@@ -9,6 +9,7 @@ use Phpro\SoapClient\CodeGenerator\Context\PropertyContext;
 use Phpro\SoapClient\CodeGenerator\Model\Property;
 use Phpro\SoapClient\CodeGenerator\Model\Type;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Laminas\Code\Generator\ClassGenerator;
 use Soap\Engine\Metadata\Model\Property as MetaProperty;
 use Soap\Engine\Metadata\Model\TypeMeta;
@@ -21,18 +22,14 @@ use Soap\Engine\Metadata\Model\XsdType;
  */
 class GetterAssemblerTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     function it_is_an_assembler()
     {
         $assembler = new GetterAssembler();
         $this->assertInstanceOf(AssemblerInterface::class, $assembler);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_can_assemble_property_context()
     {
         $assembler = new GetterAssembler();
@@ -40,9 +37,7 @@ class GetterAssemblerTest extends TestCase
         $this->assertTrue($assembler->canAssemble($context));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_property()
     {
         $assembler = new GetterAssembler();
@@ -69,9 +64,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_an_optional_value()
     {
         $assembler = new GetterAssembler(GetterAssemblerOptions::create()->withOptionalValue());
@@ -98,9 +91,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_assembles_without_return_type()
     {
         $options = (new GetterAssemblerOptions())
@@ -130,9 +121,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_assembles_with_no_doc_blocks()
     {
         $options = (new GetterAssemblerOptions())
@@ -159,9 +148,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_property_methodnames_correctly()
     {
         $options = (new GetterAssemblerOptions())->withBoolGetters();
@@ -190,9 +177,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_with_normalised_class_name()
     {
         $options = (new GetterAssemblerOptions())->withReturnType();
@@ -221,9 +206,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_doc_block_that_does_not_wrap()
     {
         $assembler = new GetterAssembler();
@@ -250,9 +233,7 @@ CODE;
         $this->assertEquals($expected, $generated);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_property_with_advanced_types()
     {
         $assembler = new GetterAssembler();

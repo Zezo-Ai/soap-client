@@ -16,6 +16,7 @@ use Phpro\SoapClient\Soap\EngineOptions;
 use Phpro\SoapClient\Type\MixedResult;
 use Phpro\SoapClient\Type\MultiArgumentRequest;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Soap\Psr18Transport\Psr18Transport;
 
 class ClientTest extends TestCase
@@ -56,7 +57,7 @@ class ClientTest extends TestCase
         };
     }
 
-    /** @test */
+    #[Test]
     public function it_can_request_soap_endpoint(): void
     {
         $response = $this->client->add(new MultiArgumentRequest([

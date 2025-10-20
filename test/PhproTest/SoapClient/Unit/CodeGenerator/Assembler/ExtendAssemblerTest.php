@@ -8,6 +8,7 @@ use Phpro\SoapClient\CodeGenerator\Context\TypeContext;
 use Phpro\SoapClient\CodeGenerator\Model\Property;
 use Phpro\SoapClient\CodeGenerator\Model\Type;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Laminas\Code\Generator\ClassGenerator;
 use Soap\Engine\Metadata\Model\Property as MetaProperty;
 use Soap\Engine\Metadata\Model\TypeMeta;
@@ -21,18 +22,14 @@ use Soap\Engine\Metadata\Model\XsdType;
 class ExtendAssemblerTest extends TestCase
 {
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_is_an_assembler()
     {
         $assembler = new ExtendAssembler(\ArrayIterator::class);
         $this->assertInstanceOf(AssemblerInterface::class, $assembler);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_can_assemble_type_context()
     {
         $assembler = new ExtendAssembler(\ArrayIterator::class);
@@ -40,9 +37,7 @@ class ExtendAssemblerTest extends TestCase
         $this->assertTrue($assembler->canAssemble($context));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_type()
     {
         $assembler = new ExtendAssembler(\ArrayIterator::class);
@@ -64,9 +59,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_type_with_extended_class_name_equal_to_generated_class_name()
     {
         $assembler = new ExtendAssembler('MyNamespace\\MyType');

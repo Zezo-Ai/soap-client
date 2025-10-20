@@ -9,6 +9,7 @@ use Phpro\SoapClient\CodeGenerator\Context\PropertyContext;
 use Phpro\SoapClient\CodeGenerator\Model\Property;
 use Phpro\SoapClient\CodeGenerator\Model\Type;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Laminas\Code\Generator\ClassGenerator;
 use Laminas\Code\Generator\PropertyGenerator;
 use Soap\Engine\Metadata\Model\Property as MetaProperty;
@@ -22,18 +23,14 @@ use Soap\Engine\Metadata\Model\XsdType;
  */
 class PropertyAssemblerTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     function it_is_an_assembler()
     {
         $assembler = new PropertyAssembler();
         $this->assertInstanceOf(AssemblerInterface::class, $assembler);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_property_without_default_value()
     {
         $assembler = new PropertyAssembler();
@@ -58,9 +55,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_property_with_default_value()
     {
         $assembler = new PropertyAssembler(
@@ -88,9 +83,7 @@ CODE;
     }
 
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_with_visibility_without_default_value()
     {
         $assembler = new PropertyAssembler(
@@ -117,9 +110,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_without_doc_blocks()
     {
         $assembler = new PropertyAssembler(
@@ -141,9 +132,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_with_visibility_without_type_info()
     {
         $assembler = new PropertyAssembler(
@@ -170,9 +159,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_doc_block_that_does_not_wrap()
     {
         $assembler = new PropertyAssembler();
@@ -196,9 +183,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_properties_with_advanced_types()
     {
         $assembler = new PropertyAssembler();
@@ -232,9 +217,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_overwrite_props_during_assembling()
     {
         $context = $this->createContext();
@@ -265,9 +248,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_property_with_null()
     {
         $assembler = new PropertyAssembler(

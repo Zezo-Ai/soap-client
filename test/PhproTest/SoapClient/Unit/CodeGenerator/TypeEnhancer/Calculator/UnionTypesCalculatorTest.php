@@ -5,15 +5,15 @@ namespace PhproTest\SoapClient\Unit\CodeGenerator\TypeEnhancer\Calculator;
 
 use Phpro\SoapClient\CodeGenerator\TypeEnhancer\Calculator\UnionTypesCalculator;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Psl\Type\Exception\AssertException;
 use Soap\Engine\Metadata\Model\TypeMeta;
 
 class UnionTypesCalculatorTest extends TestCase
 {
-    /**
-     * @test
-     * @dataProvider provideExpectations
-     */
+    #[DataProvider('provideExpectations')]
+    #[Test]
     public function it_can_enhance_types(
         TypeMeta $meta,
         string $expected,
@@ -23,7 +23,7 @@ class UnionTypesCalculatorTest extends TestCase
         self::assertSame($expected, $calculator($meta));
     }
 
-    /** @test */
+    #[Test]
     public function it_fails_on_empty_enumerations(): void
     {
         $this->expectException(AssertException::class);

@@ -5,6 +5,7 @@ namespace PhproTest\SoapClient\Unit\Soap\Metadata\Manipulators\TypeReplacer;
 
 use Phpro\SoapClient\Soap\Metadata\Manipulators\TypeReplacer\AppendTypesManipulator;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Soap\Engine\Metadata\Collection\PropertyCollection;
 use Soap\Engine\Metadata\Collection\TypeCollection;
 use Soap\Engine\Metadata\Model\Property;
@@ -13,7 +14,7 @@ use Soap\Engine\Metadata\Model\XsdType;
 
 class AppendTypesManipulatorTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_can_append_types(): void
     {
         $int = XsdType::create('int');

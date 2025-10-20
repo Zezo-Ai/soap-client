@@ -9,6 +9,7 @@ use Phpro\SoapClient\CodeGenerator\Model\Property;
 use Phpro\SoapClient\CodeGenerator\Model\Type;
 use Phpro\SoapClient\Type\MixedResult;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Laminas\Code\Generator\ClassGenerator;
 use Soap\Engine\Metadata\Model\Property as MetaProperty;
 use Soap\Engine\Metadata\Model\TypeMeta;
@@ -21,18 +22,14 @@ use Soap\Engine\Metadata\Model\XsdType;
  */
 class ResultProviderAssemblerTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     function it_is_an_assembler()
     {
         $assembler = new ResultProviderAssembler();
         $this->assertInstanceOf(AssemblerInterface::class, $assembler);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_can_assemble_type_context()
     {
         $assembler = new ResultProviderAssembler();
@@ -40,9 +37,7 @@ class ResultProviderAssemblerTest extends TestCase
         $this->assertTrue($assembler->canAssemble($context));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_type()
     {
         $assembler = new ResultProviderAssembler();
@@ -72,9 +67,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_type_with_wrapper_class()
     {
         $assembler = new ResultProviderAssembler(MixedResult::class);
@@ -104,9 +97,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_type_with_wrapper_class_with_prefixed_slash()
     {
         $assembler = new ResultProviderAssembler('\\' . MixedResult::class);

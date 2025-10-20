@@ -15,6 +15,7 @@ use Phpro\SoapClient\CodeGenerator\Context\TypeContext;
 use Phpro\SoapClient\CodeGenerator\Model\Property;
 use Phpro\SoapClient\CodeGenerator\Model\Type;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 /**
  * Class FileAssemblerTest
@@ -23,18 +24,14 @@ use PHPUnit\Framework\TestCase;
  */
 class StrictTypesAssemblerTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     function it_is_an_assembler(): void
     {
         $assembler = new StrictTypesAssembler();
         $this->assertInstanceOf(AssemblerInterface::class, $assembler);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_can_assemble_file_context(): void
     {
         $assembler = new StrictTypesAssembler();
@@ -42,9 +39,7 @@ class StrictTypesAssemblerTest extends TestCase
         $this->assertTrue($assembler->canAssemble($context));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_assembles_with_strict_types(): void
     {
         $assembler = new StrictTypesAssembler();
