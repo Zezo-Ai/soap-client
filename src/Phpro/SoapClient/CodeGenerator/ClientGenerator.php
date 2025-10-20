@@ -43,7 +43,6 @@ class ClientGenerator implements GeneratorInterface
     public function generate(FileGenerator $file, $client): string
     {
         try {
-            // @phpstan-ignore-next-line
             $class = $file->getClass() ?: new ClassGenerator();
         } catch (ClassNotFoundException $exception) {
             $class = new ClassGenerator();

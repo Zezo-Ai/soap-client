@@ -40,7 +40,6 @@ class TypeGenerator implements GeneratorInterface
     public function generate(FileGenerator $file, $type): string
     {
         try {
-            // @phpstan-ignore-next-line
             $class = $file->getClass() ?: new ClassGenerator();
         } catch (ClassNotFoundException $exception) {
             $class = new ClassGenerator();

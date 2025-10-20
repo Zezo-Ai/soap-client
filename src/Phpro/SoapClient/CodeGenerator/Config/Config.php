@@ -44,9 +44,9 @@ final class Config
     protected $clientNamespace = '';
 
     /**
-     * @var Engine
+     * @var Engine|null
      */
-    protected $engine;
+    protected $engine = null;
 
     /**
      * @var string
