@@ -1,5 +1,8 @@
 parameters:
     level: max
+    treatPhpDocTypesAsCertain: false
+    paths:
+        - src
     ignoreErrors:
         # This is something we hope to fix in PHP 7.4
         # https://wiki.php.net/rfc/covariant-returns-and-contravariant-parameters

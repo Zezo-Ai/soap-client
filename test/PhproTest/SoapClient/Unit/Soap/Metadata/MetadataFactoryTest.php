@@ -9,13 +9,14 @@ use Phpro\SoapClient\Soap\Metadata\Manipulators\TypesManipulatorInterface;
 use Phpro\SoapClient\Soap\Metadata\MetadataFactory;
 use Phpro\SoapClient\Soap\Metadata\MetadataOptions;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Soap\Engine\Metadata\Collection\MethodCollection;
 use Soap\Engine\Metadata\Collection\TypeCollection;
 use Soap\Engine\Metadata\Metadata;
 
 class MetadataFactoryTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_can_create_lazy_in_memory_metadata(): void
     {
         $meta = new class implements Metadata {
@@ -39,7 +40,7 @@ class MetadataFactoryTest extends TestCase
         self::assertSame($lazy->getMethods(), $lazy->getMethods());
     }
 
-    /** @test */
+    #[Test]
     public function it_can_create_manipulated_metadata(): void
     {
         $meta = new class implements Metadata {

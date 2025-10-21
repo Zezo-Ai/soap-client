@@ -6,6 +6,7 @@ namespace PhproTest\SoapClient\Unit\Soap\Metadata\Detector;
 
 use Phpro\SoapClient\Soap\Metadata\Detector\DuplicateTypeNamesDetector;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Soap\Engine\Metadata\Collection\PropertyCollection;
 use Soap\Engine\Metadata\Collection\TypeCollection;
 use Soap\Engine\Metadata\Model\Type;
@@ -13,7 +14,7 @@ use Soap\Engine\Metadata\Model\XsdType;
 
 class DuplicateTypeNamesDetectorTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_can_detect_duplicate_type_names(): void
     {
         $detector = new DuplicateTypeNamesDetector();

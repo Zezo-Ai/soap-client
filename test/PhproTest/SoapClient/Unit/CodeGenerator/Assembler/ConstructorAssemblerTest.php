@@ -9,6 +9,7 @@ use Phpro\SoapClient\CodeGenerator\Context\TypeContext;
 use Phpro\SoapClient\CodeGenerator\Model\Property;
 use Phpro\SoapClient\CodeGenerator\Model\Type;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Laminas\Code\Generator\ClassGenerator;
 use Soap\Engine\Metadata\Model\Property as MetaProperty;
 use Soap\Engine\Metadata\Model\TypeMeta;
@@ -21,18 +22,14 @@ use Soap\Engine\Metadata\Model\XsdType;
  */
 class ConstructorAssemblerTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     function it_is_an_assembler()
     {
         $assembler = new ConstructorAssembler();
         $this->assertInstanceOf(AssemblerInterface::class, $assembler);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_can_assemble_type_context()
     {
         $assembler = new ConstructorAssembler();
@@ -40,9 +37,7 @@ class ConstructorAssemblerTest extends TestCase
         $this->assertTrue($assembler->canAssemble($context));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_type_without_type_hints()
     {
         $assembler = new ConstructorAssembler((new ConstructorAssemblerOptions())->withTypeHints(false));
@@ -73,9 +68,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assambles_a_constructor()
     {
         $assembler = new ConstructorAssembler();
@@ -115,9 +108,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_type_with_no_doc_blocks()
     {
         $assembler = new ConstructorAssembler(
@@ -146,9 +137,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assambles_a_constructor_with_advanced_types()
     {
         $assembler = new ConstructorAssembler();

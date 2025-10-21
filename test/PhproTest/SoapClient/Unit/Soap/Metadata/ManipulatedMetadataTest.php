@@ -10,6 +10,7 @@ use Phpro\SoapClient\Soap\Metadata\Manipulators\MethodsManipulatorInterface;
 use Phpro\SoapClient\Soap\Metadata\Manipulators\TypesManipulatorChain;
 use Phpro\SoapClient\Soap\Metadata\Manipulators\TypesManipulatorInterface;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Soap\Engine\Metadata\Collection\MethodCollection;
 use Soap\Engine\Metadata\Collection\ParameterCollection;
 use Soap\Engine\Metadata\Collection\PropertyCollection;
@@ -42,7 +43,7 @@ class ManipulatedMetadataTest extends TestCase
         };
     }
 
-    /** @test */
+    #[Test]
     public function it_is_a_metdata_object(): void
     {
         self::assertInstanceOf(Metadata::class, new ManipulatedMetadata(
@@ -52,7 +53,7 @@ class ManipulatedMetadataTest extends TestCase
         ));
     }
 
-    /** @test */
+    #[Test]
     public function it_proxies_everything_on_no_manipulators(): void
     {
         $manipulator = new ManipulatedMetadata(
@@ -65,7 +66,7 @@ class ManipulatedMetadataTest extends TestCase
         self::assertEquals($this->metadata->getTypes(), $manipulator->getTypes());
     }
 
-    /** @test */
+    #[Test]
     public function it_can_manipulate_methods(): void
     {
         $manipulatedMeta = new ManipulatedMetadata(
@@ -90,7 +91,7 @@ class ManipulatedMetadataTest extends TestCase
         );
     }
 
-    /** @test */
+    #[Test]
     public function it_can_manipulate_types(): void
     {
         $manipulatedMeta = new ManipulatedMetadata(

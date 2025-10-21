@@ -10,6 +10,7 @@ use Phpro\SoapClient\CodeGenerator\Model\Type;
 use Phpro\SoapClient\CodeGenerator\Model\TypeMap;
 use Laminas\Code\Generator\FileGenerator;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Soap\Engine\Metadata\Model\Property as MetaProperty;
 use Soap\Engine\Metadata\Model\TypeMeta;
 use Soap\Engine\Metadata\Model\XsdType;
@@ -21,18 +22,14 @@ use Soap\Engine\Metadata\Model\XsdType;
  */
 class ClassMapAssemblerTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     function it_is_an_assembler()
     {
         $assembler = new ClassMapAssembler();
         $this->assertInstanceOf(AssemblerInterface::class, $assembler);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_can_assemble_classmap_context()
     {
         $assembler = new ClassMapAssembler();
@@ -40,9 +37,7 @@ class ClassMapAssemblerTest extends TestCase
         $this->assertTrue($assembler->canAssemble($context));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_classmap()
     {
         $assembler = new ClassMapAssembler();

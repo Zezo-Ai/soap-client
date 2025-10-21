@@ -11,6 +11,7 @@ use Phpro\SoapClient\Type\RequestInterface;
 use Phpro\SoapClient\Type\ResultInterface;
 use Phpro\SoapClient\Type\ResultProviderInterface;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Soap\Engine\Engine;
@@ -32,7 +33,7 @@ class EngineCallerTest extends TestCase
         $this->caller = new EngineCaller($this->engine->reveal());
     }
 
-    /** @test */
+    #[Test]
     public function it_can_handle_simple_request_and_response(): void
     {
         $request = $this->prophesize(RequestInterface::class)->reveal();
@@ -44,7 +45,7 @@ class EngineCallerTest extends TestCase
         self::assertSame($response, $result);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_handle_multi_argument_request(): void
     {
         $request = new MultiArgumentRequest($args = [1, 2, 3]);
@@ -56,7 +57,7 @@ class EngineCallerTest extends TestCase
         self::assertSame($response, $result);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_handle_result_providers(): void
     {
         $request = $this->prophesize(RequestInterface::class)->reveal();
@@ -70,7 +71,7 @@ class EngineCallerTest extends TestCase
         self::assertSame($response, $result);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_handle_mixed_results(): void
     {
         $request = $this->prophesize(RequestInterface::class)->reveal();
@@ -82,7 +83,7 @@ class EngineCallerTest extends TestCase
         self::assertSame(132, $result->getResult());
     }
 
-    /** @test */
+    #[Test]
     public function it_can_handle_exceptions(): void
     {
         $request = $this->prophesize(RequestInterface::class)->reveal();

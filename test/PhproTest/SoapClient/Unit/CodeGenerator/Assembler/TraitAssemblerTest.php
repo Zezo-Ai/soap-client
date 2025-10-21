@@ -7,6 +7,7 @@ use Phpro\SoapClient\CodeGenerator\Assembler\TraitAssembler;
 use Phpro\SoapClient\CodeGenerator\Context\TypeContext;
 use Phpro\SoapClient\CodeGenerator\Model\Type;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Laminas\Code\Generator\ClassGenerator;
 use Soap\Engine\Metadata\Model\TypeMeta;
 use Soap\Engine\Metadata\Model\XsdType;
@@ -19,18 +20,14 @@ use Soap\Engine\Metadata\Model\XsdType;
 class TraitAssemblerTest extends TestCase
 {
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_is_an_assembler()
     {
         $assembler = new TraitAssembler('MyTrait');
         $this->assertInstanceOf(AssemblerInterface::class, $assembler);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_can_assemble_type_context()
     {
         $assembler = new TraitAssembler('MyTrait');
@@ -38,9 +35,7 @@ class TraitAssemblerTest extends TestCase
         $this->assertTrue($assembler->canAssemble($context));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_type()
     {
         $assembler = new TraitAssembler('MyTrait');
@@ -63,9 +58,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_adds_a_trait_with_alias()
     {
         $assembler = new TraitAssembler('\Namespace\MyTrait', 'TraitAlias');

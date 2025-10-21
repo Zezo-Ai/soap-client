@@ -7,6 +7,7 @@ namespace PhproTest\SoapClient\Unit\Soap\Metadata\Manipulators\DuplicateTypes;
 use Phpro\SoapClient\Soap\Metadata\Manipulators\DuplicateTypes\IntersectDuplicateTypesStrategy;
 use Phpro\SoapClient\Soap\Metadata\Manipulators\TypesManipulatorInterface;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Soap\Engine\Metadata\Collection\PropertyCollection;
 use Soap\Engine\Metadata\Collection\TypeCollection;
 use Soap\Engine\Metadata\Model\Property;
@@ -22,7 +23,7 @@ class IntersectDuplicateTypesStrategyTest extends TestCase
         self::assertInstanceOf(TypesManipulatorInterface::class, $strategy);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_intersect_duplicate_types(): void
     {
         $strategy = new IntersectDuplicateTypesStrategy();

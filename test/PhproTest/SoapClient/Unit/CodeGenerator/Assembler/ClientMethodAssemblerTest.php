@@ -11,6 +11,7 @@ use Phpro\SoapClient\CodeGenerator\Model\Parameter;
 use Phpro\SoapClient\CodeGenerator\Model\ReturnType;
 use Phpro\SoapClient\Exception\AssemblerException;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Soap\Engine\Metadata\Model\MethodMeta;
 use Soap\Engine\Metadata\Model\TypeMeta;
 use Soap\Engine\Metadata\Model\XsdType;
@@ -22,18 +23,14 @@ use Soap\Engine\Metadata\Model\XsdType;
  */
 class ClientMethodAssemblerTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     function it_is_an_assembler()
     {
         $assembler = new ClientMethodAssembler();
         $this->assertInstanceOf(ClientMethodAssembler::class, $assembler);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_can_assemble_client_method_context()
     {
         $assembler = new ClientMethodAssembler();
@@ -106,9 +103,7 @@ class ClientMethodAssemblerTest extends TestCase
         return new ClientMethodContext($class, $method);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_method()
     {
         $assembler = new ClientMethodAssembler();
@@ -149,9 +144,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_multiargumentrequests()
     {
         $assembler = new ClientMethodAssembler();
@@ -196,9 +189,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_can_deal_with_empty_params()
     {
         $assembler = new ClientMethodAssembler();
@@ -235,9 +226,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_method_with_underscore_param_type()
     {
         $assembler = new ClientMethodAssembler();
@@ -289,9 +278,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_throws_an_exception_when_wrong_context_is_passed() {
         $clientMethodAssembler = new ClientMethodAssembler();
         $context = $this->createMock(ClientContext::class);
@@ -305,9 +292,7 @@ CODE;
         $clientMethodAssembler->assemble($context);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_deals_with_scalar_types_as_a_multi_arguments_request() {
         $assembler = new ClientMethodAssembler();
         $class = new ClassGenerator();
@@ -362,9 +347,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_can_deal_with_scalar_return_types_on_single_arguments()
     {
         $assembler = new ClientMethodAssembler();
@@ -415,9 +398,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_can_deal_with_scalar_return_types_on_multi_arguments()
     {
         $assembler = new ClientMethodAssembler();
@@ -477,9 +458,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_can_deal_with_elements_referencing_complex_types_return_types()
     {
         $assembler = new ClientMethodAssembler();

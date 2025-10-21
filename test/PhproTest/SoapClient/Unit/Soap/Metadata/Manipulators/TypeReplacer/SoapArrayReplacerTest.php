@@ -5,16 +5,16 @@ namespace PhproTest\SoapClient\Unit\Soap\Metadata\Manipulators\TypeReplacer;
 
 use Phpro\SoapClient\Soap\Metadata\Manipulators\TypeReplacer\SoapArrayReplacer;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Soap\Engine\Metadata\Model\TypeMeta;
 use Soap\Engine\Metadata\Model\XsdType;
 use Soap\WsdlReader\Model\Definitions\EncodingStyle;
 
 final class SoapArrayReplacerTest extends TestCase
 {
-    /**
-     * @test
-     * @dataProvider provideTestCases
-     */
+    #[DataProvider('provideTestCases')]
+    #[Test]
     public function it_can_replace_apache_map(XsdType $in, XsdType $expected): void
     {
         self::assertEquals($expected, (new SoapArrayReplacer())($in));

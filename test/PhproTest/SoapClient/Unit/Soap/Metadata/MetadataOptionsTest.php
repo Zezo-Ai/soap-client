@@ -10,6 +10,7 @@ use Phpro\SoapClient\Soap\Metadata\Manipulators\TypesManipulatorChain;
 use Phpro\SoapClient\Soap\Metadata\Manipulators\TypesManipulatorInterface;
 use Phpro\SoapClient\Soap\Metadata\MetadataOptions;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Prophecy\PhpUnit\ProphecyTrait;
 
 class MetadataOptionsTest extends TestCase
@@ -27,7 +28,7 @@ class MetadataOptionsTest extends TestCase
     }
 
 
-    /** @test */
+    #[Test]
     public function it_contains_empty_chains_on_startup(): void
     {
 
@@ -35,7 +36,7 @@ class MetadataOptionsTest extends TestCase
         self::assertEquals(new MethodsManipulatorChain(), $this->metaOptions->getMethodsManipulator());
     }
 
-    /** @test */
+    #[Test]
     public function it_is_possible_to_change_types_manipulator(): void
     {
         $manipulator = $this->prophesize(TypesManipulatorInterface::class);
@@ -45,7 +46,7 @@ class MetadataOptionsTest extends TestCase
         self::assertSame($manipulator->reveal(), $new->getTypesManipulator());
     }
 
-    /** @test */
+    #[Test]
     public function it_is_possible_to_change_method_manipulator(): void
     {
         $manipulator = $this->prophesize(MethodsManipulatorInterface::class);

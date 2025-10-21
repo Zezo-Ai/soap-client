@@ -7,6 +7,7 @@ namespace PhproTest\SoapClient\Unit\Soap\Metadata\Manipulators;
 use Phpro\SoapClient\Soap\Metadata\Manipulators\MethodsManipulatorChain;
 use Phpro\SoapClient\Soap\Metadata\Manipulators\MethodsManipulatorInterface;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Soap\Engine\Metadata\Collection\MethodCollection;
 use Soap\Engine\Metadata\Collection\ParameterCollection;
 use Soap\Engine\Metadata\Model\Method;
@@ -14,13 +15,13 @@ use Soap\Engine\Metadata\Model\XsdType;
 
 class MethodsManipulatorChainTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_is_a_method_manipulator(): void
     {
         self::assertInstanceOf(MethodsManipulatorInterface::class, new MethodsManipulatorChain());
     }
 
-    /** @test */
+    #[Test]
     public function it_does_not_touch_methods_with_no_manipulator(): void
     {
         $methods = new MethodCollection();
@@ -30,7 +31,7 @@ class MethodsManipulatorChainTest extends TestCase
         self::assertSame($methods, $result);
     }
 
-    /** @test */
+    #[Test]
     public function it_manipulates_methods_collection(): void
     {
         $methods = new MethodCollection();

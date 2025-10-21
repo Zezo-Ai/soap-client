@@ -6,6 +6,7 @@ namespace PhproTest\SoapClient\Unit\Soap\Metadata\Detector;
 
 use Phpro\SoapClient\Soap\Metadata\Detector\LocalEnumDetector;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Soap\Engine\Metadata\Collection\PropertyCollection;
 use Soap\Engine\Metadata\Collection\TypeCollection;
 use Soap\Engine\Metadata\Model\Property;
@@ -15,7 +16,7 @@ use Soap\Engine\Metadata\Model\XsdType;
 
 class LocalEnumDetectorTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_can_detect_local_enums(): void
     {
         $markAsEnum = static fn(XsdType $type, bool $local) => $type->withMeta(

@@ -7,6 +7,7 @@ use Phpro\SoapClient\CodeGenerator\Assembler\ExtendingTypeAssembler;
 use Phpro\SoapClient\CodeGenerator\Context\TypeContext;
 use Phpro\SoapClient\CodeGenerator\Model\Type;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Laminas\Code\Generator\ClassGenerator;
 use Soap\Engine\Metadata\Model\TypeMeta;
 use Soap\Engine\Metadata\Model\XsdType;
@@ -19,18 +20,14 @@ use Soap\Engine\Metadata\Model\XsdType;
 class ExtendingTypeAssemblerTest extends TestCase
 {
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_is_an_assembler()
     {
         $assembler = new ExtendingTypeAssembler();
         $this->assertInstanceOf(AssemblerInterface::class, $assembler);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_can_assemble_type_context()
     {
         $assembler = new ExtendingTypeAssembler();
@@ -38,9 +35,7 @@ class ExtendingTypeAssemblerTest extends TestCase
         $this->assertTrue($assembler->canAssemble($context));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_type_in_same_namespace()
     {
         $assembler = new ExtendingTypeAssembler();
@@ -60,9 +55,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_type_in_other_namespace()
     {
         $assembler = new ExtendingTypeAssembler();
@@ -84,9 +77,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_skips_assambling_on_non_extending_type()
     {
         $assembler = new ExtendingTypeAssembler();
@@ -109,9 +100,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_skips_assambling_on_extending_simple_type()
     {
         $assembler = new ExtendingTypeAssembler();

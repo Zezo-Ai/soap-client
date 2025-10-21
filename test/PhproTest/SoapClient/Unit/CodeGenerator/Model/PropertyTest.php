@@ -4,6 +4,7 @@ namespace PhproTest\SoapClient\Unit\CodeGenerator\Model;
 
 use Phpro\SoapClient\CodeGenerator\Model\Property;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Psl\Option\Option;
 use Soap\Engine\Metadata\Model\Property as EngineProperty;
 use Soap\Engine\Metadata\Model\XsdType;
@@ -15,9 +16,7 @@ use Soap\Engine\Metadata\Model\XsdType;
  */
 class PropertyTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_returns_mixed_type_post_php8(): void
     {
         $property = new Property('test', 'mixed', 'App', XsdType::create('mixed'));
@@ -25,7 +24,7 @@ class PropertyTest extends TestCase
         self::assertEquals('mixed', $property->getType());
     }
 
-    /** @test */
+    #[Test]
     public function it_can_use_fqcn_to_3rd_party_classes_as_type_name(): void
     {
         $property = Property::fromMetaData(
@@ -42,7 +41,7 @@ class PropertyTest extends TestCase
         self::assertSame('Option', $property->getXsdType()->getBaseType());
     }
 
-    /** @test */
+    #[Test]
     public function it_can_use_a_php_built_in_class_as_type_name(): void
     {
         $property = Property::fromMetaData(

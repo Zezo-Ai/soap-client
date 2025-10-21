@@ -10,6 +10,8 @@ use Phpro\SoapClient\CodeGenerator\Context\PropertyContext;
 use Phpro\SoapClient\CodeGenerator\Model\Property;
 use Phpro\SoapClient\CodeGenerator\Model\Type;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Laminas\Code\Generator\ClassGenerator;
 use Soap\Engine\Metadata\Model\Property as EngineProperty;
 use Soap\Engine\Metadata\Model\Property as MetaProperty;
@@ -18,19 +20,15 @@ use Soap\Engine\Metadata\Model\XsdType;
 
 class PropertyDefaultsAssemblerTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     function it_is_an_assembler()
     {
         $assembler = new PropertyDefaultsAssembler();
         $this->assertInstanceOf(AssemblerInterface::class, $assembler);
     }
 
-    /**
-     * @test
-     * @dataProvider provideAssemblerContexts
-     */
+    #[DataProvider('provideAssemblerContexts')]
+    #[Test]
     function it_can_enhance_assembled_property_with_a_default_value(
         PropertyContext $context,
         string $expectedCode,

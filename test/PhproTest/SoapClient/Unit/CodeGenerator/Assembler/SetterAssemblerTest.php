@@ -9,6 +9,7 @@ use Phpro\SoapClient\CodeGenerator\Context\PropertyContext;
 use Phpro\SoapClient\CodeGenerator\Model\Property;
 use Phpro\SoapClient\CodeGenerator\Model\Type;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Laminas\Code\Generator\ClassGenerator;
 use Soap\Engine\Metadata\Model\Property as MetaProperty;
 use Soap\Engine\Metadata\Model\TypeMeta;
@@ -22,18 +23,14 @@ use Soap\Engine\Metadata\Model\XsdType;
 class SetterAssemblerTest extends TestCase
 {
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_is_an_assembler()
     {
         $assembler = new SetterAssembler();
         $this->assertInstanceOf(AssemblerInterface::class, $assembler);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_can_assemble_property_context()
     {
         $assembler = new SetterAssembler();
@@ -41,9 +38,7 @@ class SetterAssemblerTest extends TestCase
         $this->assertTrue($assembler->canAssemble($context));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_property()
     {
         $assembler = new SetterAssembler();
@@ -71,9 +66,7 @@ CODE;
     }
 
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_with_no_doc_blocks()
     {
         $assembler = new SetterAssembler((new SetterAssemblerOptions())->withDocBlocks(false));
@@ -97,9 +90,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_with_no_type_hints()
     {
         $assembler = new SetterAssembler((new SetterAssemblerOptions())->withTypeHints(false));
@@ -126,9 +117,7 @@ CODE;
         $this->assertEquals($expected, $code);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_doc_block_that_does_not_wrap()
     {
         $assembler = new SetterAssembler();
@@ -155,9 +144,7 @@ CODE;
         $this->assertEquals($expected, $generated);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     function it_assembles_a_setter_with_advanced_types()
     {
         $assembler = new SetterAssembler();

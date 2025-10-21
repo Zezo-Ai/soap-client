@@ -7,6 +7,7 @@ namespace PhproTest\SoapClient\Unit\Soap\Metadata\Manipulators;
 use Phpro\SoapClient\Soap\Metadata\Manipulators\TypesManipulatorChain;
 use Phpro\SoapClient\Soap\Metadata\Manipulators\TypesManipulatorInterface;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Soap\Engine\Metadata\Collection\PropertyCollection;
 use Soap\Engine\Metadata\Collection\TypeCollection;
 use Soap\Engine\Metadata\Model\Type;
@@ -14,13 +15,13 @@ use Soap\Engine\Metadata\Model\XsdType;
 
 class TypesManipulatorChainTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_is_a_type_manipulator(): void
     {
         self::assertInstanceOf(TypesManipulatorInterface::class, new TypesManipulatorChain());
     }
 
-    /** @test */
+    #[Test]
     public function it_does_not_touch_types_with_no_manipulator(): void
     {
         $types = new TypeCollection();
@@ -30,7 +31,7 @@ class TypesManipulatorChainTest extends TestCase
         self::assertSame($types, $result);
     }
 
-    /** @test */
+    #[Test]
     public function it_manipulates_types_collection(): void
     {
         $types = new TypeCollection();

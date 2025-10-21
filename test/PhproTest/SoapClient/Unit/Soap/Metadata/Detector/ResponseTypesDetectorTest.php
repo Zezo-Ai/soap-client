@@ -6,6 +6,7 @@ namespace PhproTest\SoapClient\Unit\Soap\Metadata\Detector;
 
 use Phpro\SoapClient\Soap\Metadata\Detector\ResponseTypesDetector;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Soap\Engine\Metadata\Collection\MethodCollection;
 use Soap\Engine\Metadata\Collection\ParameterCollection;
 use Soap\Engine\Metadata\Model\Method;
@@ -14,7 +15,7 @@ use Soap\Engine\Metadata\Model\XsdType;
 
 class ResponseTypesDetectorTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_can_detect_request_types(): void
     {
         $methods = new MethodCollection(
