@@ -101,6 +101,7 @@ class Property
         }
 
         if ($this->meta->isSimple()->unwrapOr(false)
+                && !$this->meta->enums()->isSome()
                 && Normalizer::isKnownType($this->xsdType->getBaseType())
         ) {
             return $this->xsdType->getBaseType();

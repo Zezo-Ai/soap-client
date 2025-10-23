@@ -79,6 +79,7 @@ class PropertyTest extends TestCase
             ),
             'string'
         ];
+
         yield 'known_simple_base_type' => [
             Property::fromMetaData(
                 'MyApp',
@@ -93,6 +94,23 @@ class PropertyTest extends TestCase
                 )
             ),
             'string'
+        ];
+
+        yield 'known_simple_base_type_with_enums' => [
+            Property::fromMetaData(
+                'MyApp',
+                new EngineProperty(
+                    'property',
+                    XsdType::create('languageEnum')
+                        ->withBaseType('string')
+                        ->withMemberTypes(['token'])
+                        ->withMeta(static fn (TypeMeta $meta) => $meta
+                            ->withIsSimple(true)
+                            ->withEnums(['EN', 'NL', 'FR'])
+                        )
+                )
+            ),
+            '\MyApp\LanguageEnum'
         ];
 
         yield 'root namespace' => [
