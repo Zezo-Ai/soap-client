@@ -100,6 +100,12 @@ class Property
             return $this->type;
         }
 
+        if ($this->meta->isSimple()->unwrapOr(false)
+                && Normalizer::isKnownType($this->xsdType->getBaseType())
+        ) {
+            return $this->xsdType->getBaseType();
+        }
+
         if (!$this->namespace) {
             return '\\'.Normalizer::normalizeClassname($this->type);
         }
