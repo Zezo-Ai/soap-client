@@ -50,7 +50,7 @@ use Soap\Encoding\ClassMap\ClassMap;
 class OrderClassMap
 {
 
-    public static function getCollection() : ClassMapCollection
+    public static function getCollection(): ClassMapCollection
     {
         return new ClassMapCollection(
             new ClassMap('http://namespace', 'CreateOrder', Type\Example1::class),

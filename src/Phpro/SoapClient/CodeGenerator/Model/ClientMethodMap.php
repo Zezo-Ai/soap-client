@@ -42,7 +42,7 @@ class ClientMethodMap
     /**
      * @return ClientMethod[]
      */
-    public function getMethods() : array
+    public function getMethods(): array
     {
         return $this->methods;
     }

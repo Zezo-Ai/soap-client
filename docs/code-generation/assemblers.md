@@ -378,7 +378,7 @@ class MyType implements ResultProviderInterface
     /**
      * @return SomeClass|ResultInterface
      */
-    public function getResult() : \Phpro\SoapClient\Type\ResultInterface
+    public function getResult(): \Phpro\SoapClient\Type\ResultInterface
     {
         return $this->prop1;
     }
@@ -402,7 +402,7 @@ class MyType implements ResultProviderInterface
     /**
      * @return MixedResult
      */
-    public function getResult() : \Phpro\SoapClient\Type\ResultInterface
+    public function getResult(): \Phpro\SoapClient\Type\ResultInterface
     {
         return new MixedResult($this->prop1);
     }

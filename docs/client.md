@@ -7,10 +7,7 @@ The first thing you need to do is creating your own client.
 ```php
 class YourClient
 {
-    /**
-     * @var Caller
-     */
-    private $caller;
+    private \Phpro\SoapClient\Caller\Caller $caller;
 
     public function __construct(\Phpro\SoapClient\Caller\Caller $caller)
     {
@@ -23,7 +20,7 @@ class YourClient
      * @return ResultInterface & HelloWorldResponse
      * @throws \Phpro\SoapClient\Exception\SoapException
      */
-    public function helloWorld(RequestInterface $request) : HelloWorldResponse
+    public function helloWorld(RequestInterface $request): HelloWorldResponse
     {
         $response = ($this->caller)('HelloWorld', $request);
 

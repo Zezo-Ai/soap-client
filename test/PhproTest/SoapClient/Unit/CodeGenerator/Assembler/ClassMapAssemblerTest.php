@@ -56,14 +56,14 @@ use Soap\Encoding\ClassMap\ClassMap;
 
 class MyClassMap
 {
-    public static function types() : \Soap\Encoding\ClassMap\ClassMapCollection
+    public static function types(): \Soap\Encoding\ClassMap\ClassMapCollection
     {
         return new ClassMapCollection(
             new ClassMap('http://my-namespace.com', 'MyType', Type\MyType::class),
         );
     }
 
-    public static function enums() : \Soap\Encoding\ClassMap\ClassMapCollection
+    public static function enums(): \Soap\Encoding\ClassMap\ClassMapCollection
     {
         return new ClassMapCollection(
             new ClassMap('http://my-namespace.com', 'MyEnum', Type\MyEnum::class),

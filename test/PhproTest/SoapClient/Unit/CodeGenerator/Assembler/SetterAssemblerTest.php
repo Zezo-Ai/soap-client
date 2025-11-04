@@ -54,7 +54,7 @@ class MyType
     /**
      * @param string \$prop1
      */
-    public function setProp1(string \$prop1) : void
+    public function setProp1(string \$prop1): void
     {
         \$this->prop1 = \$prop1;
     }
@@ -79,7 +79,7 @@ namespace MyNamespace;
 
 class MyType
 {
-    public function setProp1(string \$prop1) : void
+    public function setProp1(string \$prop1): void
     {
         \$this->prop1 = \$prop1;
     }
@@ -106,7 +106,7 @@ class MyType
     /**
      * @param string \$prop1
      */
-    public function setProp1(\$prop1) : void
+    public function setProp1(\$prop1): void
     {
         \$this->prop1 = \$prop1;
     }
@@ -134,7 +134,7 @@ class MyType
     /**
      * @param \This\Is\My\Very\Very\Long\Namespace\And\Class\Name\That\Should\Not\Never\Ever\Wrap \$prop1
      */
-    public function setProp1(\This\Is\My\Very\Very\Long\Namespace\And\Class\Name\That\Should\Not\Never\Ever\Wrap \$prop1) : void
+    public function setProp1(\This\Is\My\Very\Very\Long\Namespace\And\Class\Name\That\Should\Not\Never\Ever\Wrap \$prop1): void
     {
         \$this->prop1 = \$prop1;
     }
@@ -170,7 +170,7 @@ class MyType
     /**
      * @param array<int<0,max>, string> \$prop1
      */
-    public function setProp1(array \$prop1) : void
+    public function setProp1(array \$prop1): void
     {
         \$this->prop1 = \$prop1;
     }
