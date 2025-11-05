@@ -55,7 +55,7 @@ class MyType
      * @param string \$prop1
      * @return static
      */
-    public function withProp1(string \$prop1) : static
+    public function withProp1(string \$prop1): static
     {
         \$new = clone \$this;
         \$new->prop1 = \$prop1;
@@ -87,7 +87,7 @@ class MyType
      * @param \This\Is\My\Very\Very\Long\Namespace\And\Class\Name\That\Should\Not\Never\Ever\Wrap \$prop1
      * @return static
      */
-    public function withProp1(\This\Is\My\Very\Very\Long\Namespace\And\Class\Name\That\Should\Not\Never\Ever\Wrap \$prop1) : static
+    public function withProp1(\This\Is\My\Very\Very\Long\Namespace\And\Class\Name\That\Should\Not\Never\Ever\Wrap \$prop1): static
     {
         \$new = clone \$this;
         \$new->prop1 = \$prop1;
@@ -114,7 +114,7 @@ namespace MyNamespace;
 
 class MyType
 {
-    public function withProp1(\This\Is\My\Very\Very\Long\Namespace\And\Class\Name\That\Should\Not\Never\Ever\Wrap \$prop1) : static
+    public function withProp1(\This\Is\My\Very\Very\Long\Namespace\And\Class\Name\That\Should\Not\Never\Ever\Wrap \$prop1): static
     {
         \$new = clone \$this;
         \$new->prop1 = \$prop1;
@@ -144,7 +144,7 @@ class MyType
      * @param string \$prop1
      * @return static
      */
-    public function withProp1(\$prop1) : static
+    public function withProp1(\$prop1): static
     {
         \$new = clone \$this;
         \$new->prop1 = \$prop1;
@@ -251,7 +251,7 @@ class MyType
      * @param array<int<0,max>, string> \$prop1
      * @return static
      */
-    public function withProp1(array \$prop1) : static
+    public function withProp1(array \$prop1): static
     {
         \$new = clone \$this;
         \$new->prop1 = \$prop1;

@@ -51,14 +51,9 @@ class ClientConstructorAssemblerTest extends TestCase
         $expected = <<<CODE
 namespace Vendor\MyNamespace;
 
-use Phpro\SoapClient\Caller\Caller;
-
 class MyClient
 {
-    /**
-     * @var Caller
-     */
-    private \$caller;
+    private \Phpro\SoapClient\Caller\Caller \$caller;
 
     public function __construct(\Phpro\SoapClient\Caller\Caller \$caller)
     {

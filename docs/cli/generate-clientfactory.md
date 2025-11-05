@@ -53,7 +53,7 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
 
 class CalculatorClientFactory
 {
-    public static function factory(string $wsdl) : CalculatorClient
+    public static function factory(string $wsdl): CalculatorClient
     {
         $engine = DefaultEngineFactory::create(
             EngineOptions::defaults($wsdl)

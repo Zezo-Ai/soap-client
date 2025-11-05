@@ -52,7 +52,7 @@ use JsonSerializable;
 
 class MyType implements JsonSerializable
 {
-    public function jsonSerialize() : array
+    public function jsonSerialize(): array
     {
         return [
             'prop1' => \$this->prop1,

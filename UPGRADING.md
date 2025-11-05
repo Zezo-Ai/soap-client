@@ -287,7 +287,7 @@ class CalculatorClient
         $this->caller = $caller;
     }
 
-    public function add(Add $parameters) : AddResponse
+    public function add(Add $parameters): AddResponse
     {
         return ($this->caller)('Add', $parameters);
     }
@@ -319,7 +319,7 @@ use Phpro\SoapClient\Caller\EngineCaller;
 
 class CalculatorClientFactory
 {
-    public static function factory(string $wsdl) : CalculatorClient
+    public static function factory(string $wsdl): CalculatorClient
     {
         $engine = DefaultEngineFactory::create(
             ExtSoapOptions::defaults($wsdl, [])

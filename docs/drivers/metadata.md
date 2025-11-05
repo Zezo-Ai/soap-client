@@ -80,7 +80,7 @@ use Soap\WsdlReader\Metadata\Predicate\IsOfType;use Soap\Xml\Xmlns;
 
 final class MyDateReplacer implements TypeReplacer
 {
-    public function __invoke(XsdType $xsdType) : XsdType
+    public function __invoke(XsdType $xsdType): XsdType
     {
         $check = new IsOfType(Xmlns::xsd()->value(), 'date');
         if (!$check($xsdType)) {

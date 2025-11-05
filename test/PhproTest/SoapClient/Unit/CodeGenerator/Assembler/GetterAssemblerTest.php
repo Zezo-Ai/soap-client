@@ -53,7 +53,7 @@ class MyType
     /**
      * @return string
      */
-    public function getProp1() : string
+    public function getProp1(): string
     {
         return \$this->prop1;
     }
@@ -80,7 +80,7 @@ class MyType
     /**
      * @return null | string
      */
-    public function getProp1() : ?string
+    public function getProp1(): ?string
     {
         return \$this->prop1;
     }
@@ -137,7 +137,7 @@ namespace MyNamespace;
 
 class MyType
 {
-    public function getProp2() : int
+    public function getProp2(): int
     {
         return \$this->prop2;
     }
@@ -166,7 +166,7 @@ class MyType
     /**
      * @return bool
      */
-    public function isProp3() : bool
+    public function isProp3(): bool
     {
         return \$this->prop3;
     }
@@ -195,7 +195,7 @@ class MyType
     /**
      * @return \\ns1\\MyResponse
      */
-    public function getProp4() : \\ns1\\MyResponse
+    public function getProp4(): \\ns1\\MyResponse
     {
         return \$this->prop4;
     }
@@ -223,7 +223,7 @@ class MyType
     /**
      * @return \This\Is\My\Very\Very\Long\Namespace\And\Class\Name\That\Should\Not\Never\Ever\Wrap
      */
-    public function getProp1() : \This\Is\My\Very\Very\Long\Namespace\And\Class\Name\That\Should\Not\Never\Ever\Wrap
+    public function getProp1(): \This\Is\My\Very\Very\Long\Namespace\And\Class\Name\That\Should\Not\Never\Ever\Wrap
     {
         return \$this->prop1;
     }
@@ -259,7 +259,7 @@ class MyType
     /**
      * @return array<int<0,max>, string>
      */
-    public function getProp1() : array
+    public function getProp1(): array
     {
         return \$this->prop1;
     }

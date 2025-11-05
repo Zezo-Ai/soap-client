@@ -62,7 +62,7 @@ class MyType implements IteratorAggregate
      * @phpstan-return \ArrayIterator<int<0,1>, string>
      * @psalm-return \ArrayIterator<int<0,1>, string>
      */
-    public function getIterator() : \ArrayIterator
+    public function getIterator(): \ArrayIterator
     {
         return new \ArrayIterator(\$this->prop1);
     }
@@ -101,7 +101,7 @@ class MyType implements IteratorAggregate
      * @phpstan-return \ArrayIterator<int<0,max>, string>
      * @psalm-return \ArrayIterator<int<0,max>, string>
      */
-    public function getIterator() : \ArrayIterator
+    public function getIterator(): \ArrayIterator
     {
         return new \ArrayIterator(\$this->prop1);
     }

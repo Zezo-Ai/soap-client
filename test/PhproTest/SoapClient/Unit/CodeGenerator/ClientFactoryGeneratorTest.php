@@ -36,7 +36,7 @@ class MyclientFactory
      *
      * @param non-empty-string \$wsdl
      */
-    public static function factory(string \$wsdl) : \App\Client\Myclient
+    public static function factory(string \$wsdl): \App\Client\Myclient
     {
         \$engine = DefaultEngineFactory::create(
             EngineOptions::defaults(\$wsdl)

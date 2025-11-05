@@ -128,7 +128,7 @@ class MyClient
      * @return ResultInterface & MyTypeNamespace\ReturnType
      * @throws SoapException
      */
-    public function functionName(\Vendor\MyTypeNamespace\ParamType \$param) : \Vendor\MyTypeNamespace\ReturnType
+    public function functionName(\Vendor\MyTypeNamespace\ParamType \$param): \Vendor\MyTypeNamespace\ReturnType
     {
         \$response = (\$this->caller)('functionName', \$param);
 
@@ -174,7 +174,7 @@ class MyClient
      * @return ResultInterface & MyTypeNamespace\ReturnType
      * @throws SoapException
      */
-    public function functionName(\Phpro\SoapClient\Type\MultiArgumentRequest \$multiArgumentRequest) : \Vendor\MyTypeNamespace\ReturnType
+    public function functionName(\Phpro\SoapClient\Type\MultiArgumentRequest \$multiArgumentRequest): \Vendor\MyTypeNamespace\ReturnType
     {
         \$response = (\$this->caller)('functionName', \$multiArgumentRequest);
 
@@ -211,7 +211,7 @@ class MyClient
      * @return ResultInterface & MyTypeNamespace\ReturnType
      * @throws SoapException
      */
-    public function functionName() : \Vendor\MyTypeNamespace\ReturnType
+    public function functionName(): \Vendor\MyTypeNamespace\ReturnType
     {
         \$response = (\$this->caller)('functionName', new MultiArgumentRequest([]));
 
@@ -262,7 +262,7 @@ class MyClient
      * @return ResultInterface & MyTypeNamespace\ReturnType
      * @throws SoapException
      */
-    public function function_name(\Vendor\MyTypeNamespace\ParamType \$param) : \Vendor\MyTypeNamespace\ReturnType
+    public function function_name(\Vendor\MyTypeNamespace\ParamType \$param): \Vendor\MyTypeNamespace\ReturnType
     {
         \$response = (\$this->caller)('Function_name', \$param);
 
@@ -331,7 +331,7 @@ class MyClient
      * @return ResultInterface & MyTypeNamespace\ReturnType
      * @throws SoapException
      */
-    public function function_name(\Phpro\SoapClient\Type\MultiArgumentRequest \$multiArgumentRequest) : \Vendor\MyTypeNamespace\ReturnType
+    public function function_name(\Phpro\SoapClient\Type\MultiArgumentRequest \$multiArgumentRequest): \Vendor\MyTypeNamespace\ReturnType
     {
         \$response = (\$this->caller)('Function_name', \$multiArgumentRequest);
 
@@ -382,7 +382,7 @@ class MyClient
      * @return ResultInterface & MixedResult<string>
      * @throws SoapException
      */
-    public function functionName() : \Phpro\SoapClient\Type\MixedResult
+    public function functionName(): \Phpro\SoapClient\Type\MixedResult
     {
         \$response = (\$this->caller)('functionName', new MultiArgumentRequest([]));
 
@@ -442,7 +442,7 @@ class MyClient
      * @return ResultInterface & MixedResult<string>
      * @throws SoapException
      */
-    public function functionName(\Phpro\SoapClient\Type\MultiArgumentRequest \$multiArgumentRequest) : \Phpro\SoapClient\Type\MixedResult
+    public function functionName(\Phpro\SoapClient\Type\MultiArgumentRequest \$multiArgumentRequest): \Phpro\SoapClient\Type\MixedResult
     {
         \$response = (\$this->caller)('functionName', \$multiArgumentRequest);
 
@@ -491,7 +491,7 @@ class MyClient
      * @return ResultInterface & MyTypeNamespace\ReturnType
      * @throws SoapException
      */
-    public function functionName() : \Vendor\MyTypeNamespace\ReturnType
+    public function functionName(): \Vendor\MyTypeNamespace\ReturnType
     {
         \$response = (\$this->caller)('functionName', new MultiArgumentRequest([]));
 

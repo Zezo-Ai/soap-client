@@ -54,7 +54,7 @@ class MyType
      * @param string \$prop1
      * @return \$this
      */
-    public function setProp1(string \$prop1) : static
+    public function setProp1(string \$prop1): static
     {
         \$this->prop1 = \$prop1;
         return \$this;
@@ -83,7 +83,7 @@ class MyType
      * @param string \$prop1
      * @return \$this
      */
-    public function setProp1(\$prop1) : static
+    public function setProp1(\$prop1): static
     {
         \$this->prop1 = \$prop1;
         return \$this;
@@ -109,7 +109,7 @@ namespace MyNamespace;
 
 class MyType
 {
-    public function setProp1(string \$prop1) : static
+    public function setProp1(string \$prop1): static
     {
         \$this->prop1 = \$prop1;
         return \$this;
@@ -168,7 +168,7 @@ class MyType
      * @param \This\Is\My\Very\Very\Long\Namespace\And\Class\Name\That\Should\Not\Never\Ever\Wrap \$prop1
      * @return \$this
      */
-    public function setProp1(\This\Is\My\Very\Very\Long\Namespace\And\Class\Name\That\Should\Not\Never\Ever\Wrap \$prop1) : static
+    public function setProp1(\This\Is\My\Very\Very\Long\Namespace\And\Class\Name\That\Should\Not\Never\Ever\Wrap \$prop1): static
     {
         \$this->prop1 = \$prop1;
         return \$this;
@@ -206,7 +206,7 @@ class MyType
      * @param array<int<0,max>, string> \$prop1
      * @return \$this
      */
-    public function setProp1(array \$prop1) : static
+    public function setProp1(array \$prop1): static
     {
         \$this->prop1 = \$prop1;
         return \$this;
